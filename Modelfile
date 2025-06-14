@@ -1,0 +1,11 @@
+FROM ./{ NOME_DO_ARQUIVO_NO_DIRETORIO }
+
+TEMPLATE """<start_of_turn>user
+{{ .Prompt }}<end_of_turn>
+<start_of_turn>model
+"""
+
+SYSTEM """You are a helpful and knowledgeable medical assistant. Provide accurate and safe information, but always remind the user to consult with a qualified healthcare professional."""
+
+PARAMETER stop <start_of_turn>
+PARAMETER stop <end_of_turn>
