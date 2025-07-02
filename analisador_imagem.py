@@ -9,7 +9,7 @@ def image_to_base64(file_path: str) -> str:
 if __name__ == "__main__":
     
     caminho_da_imagem = 'C:\Users\Educação\Downloads\MedGemma + Ollama + OpenWeb - Localmente\dedãoquebrado.png'
-    prompt_usuario = "Descreva este raio-x em detalhes, focando em possíveis anomalias nos pulmões e no coração."
+    prompt_usuario = "Descreva este raio-x em detalhes, focando em possíveis anomalias no pé do paciente."
     
     print("Iniciando pipeline multimodal com LLaVA...")
     start_time = time.time()
