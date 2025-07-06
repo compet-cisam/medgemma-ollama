@@ -24,51 +24,43 @@ cd medgemma_build
 wget https://huggingface.co/kelkalot/medgemma-4b-it-GGUF/resolve/main/medgemma-4b-it-Q8_0.gguf
 ```
 
-📁 Certifique-se de que o arquivo `.gguf` esteja na **mesma pasta que o `Modelfile`** e coloque no `Modelfile`** o nome do seu arquivo `.gguf`.
+📁 Certifique-se de que o arquivo `.gguf` esteja na **mesma pasta que o `Modelfile`** e coloque no `Modelfile` o nome do seu arquivo `.gguf`.
 
 ---
 
-## 🧪 2. Crie o modelo no Ollama
+## 🚀 2. Rodando tudo automaticamente com os scripts
 
-Com o `Modelfile` e o `.gguf` na mesma pasta, execute:
+Este repositório já contém scripts prontos para automatizar a criação do modelo e o deploy da interface web:
 
-```bash
-ollama create medgemma -f ./Modelfile
-```
-
-✅ Isso registrará o modelo `medgemma` localmente no Ollama.
-
----
-
-## 🧠 3. Rode o modelo com Ollama
+# ▶️ Windows
+No terminal cmd ou PowerShell, execute:
 
 ```bash
-ollama run medgemma
+setup-medgemma.bat
 ```
 
----
+# 🐧 Linux/macOS
+Dê permissão de execução:
+```bash
+chmod +x setup-medgemma.sh
+```
 
-## 🌐 4. Execute o Open WebUI via Docker
-
-Execute este comando para iniciar a interface web local:
+Depois, execute:
 
 ```bash
-docker run -d -p 8080:8080 \
-  -v open-webui:/app/backend/data \
-  -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
-  --name open-webui \
-  --restart always \
-  ghcr.io/open-webui/open-webui:main
+./setup-medgemma.sh
 ```
 
-🔗 Depois, acesse:
+Esse script:
 
+✔️ Cria o modelo no Ollama (se ainda não existir)
+✔️ Inicia o Open WebUI via Docker
+
+## 🌐 3. Acesse a interface
+
+```arduino
+(http://localhost:8080)
 ```
-http://localhost:8080
-```
-
-> 💡 Caso esteja no Linux, substitua `host.docker.internal` por `127.0.0.1`.
-
 ---
 
 ## ✅ Verificando
